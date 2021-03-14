@@ -11,7 +11,6 @@ do
 done < "$cfg"
 
 filename=$(basename -- "$url")
-
 wget $url 
 
 while IFS= read -r line
