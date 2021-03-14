@@ -24,12 +24,10 @@ done < "$filename"
 todate=`TZ=PST8PDT date`
 
 echo "today: $todate"
-
 echo "due date: $duedate"
 
 todateepoch=$(date -d "$todate" +%s)
 duedateepoch=$(date -d "$duedate" +%s)
-
 if [ "$todateepoch" -gt "$duedateepoch" ] ;
 then
     echo "past due!"
@@ -37,4 +35,3 @@ then
 else
     echo "all good"
 fi
-
