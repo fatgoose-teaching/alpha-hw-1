@@ -11,9 +11,9 @@ name: css 143 grader
 on:
   # Uncomment the following two line to run test when you push to master in your own branch
   push:
-    branches: [ master ]
+    branches: [ main ]
   pull_request:
-    branches: [ master ]
+    branches: [ main ]
     types: [opened, reopened, synchronize]
 
 jobs:
@@ -37,7 +37,7 @@ jobs:
         run: mvn -B verify --file pom.xml
       - name: Check due date 
         run: bash .github/workflows/check_due_date.sh
-      - name: Check no change to master branch 
+      - name: Check no change to main branch 
         run: bash .github/workflows/check_no_change_to_master.sh
 
 
