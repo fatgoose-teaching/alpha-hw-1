@@ -5,7 +5,7 @@ cfg="src/backref.cfg"
 while IFS= read -r line
 do
   if [[ "$line" == *"assignment: "* ]]; then
-    url=`echo $line | sed 's/assignment: \(.*\)/\1/'`
+    url=`echo $line | sed 's/assignment: \(.*\) /\1/'`
     echo $duedate
   fi
 done < "$cfg"
