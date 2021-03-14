@@ -1,16 +1,31 @@
 #!/bin/bash
 
-UPSTREAM=https://github.com/pdgetrf/goose-test.git
+cfg="src/backref.cfg" 
 
-git remote add upstream $UPSTREAM 
-git fetch upstream master:upstream-master
+while IFS= read -r line
+do
+  if [[ "$line" == *"upstream: "* ]]; then
+    upstream=`echo $line | sed 's/upstream: \(.*\)/\1/'`
+    echo $duedate
+  fi
+done < "$cfg"
 
-changes=`git diff upstream-master master`
+check_upstream
 
-if [ -z "$changes" ]
-then
-      echo "no changes in master branch"
-else
+check_upstream() {
+  echo "upstream is $upstream"
+
+  git remote add upstream $upstream 
+  git fetch upstream master:upstream-master
+
+  changes=`git diff upstream-master master`
+
+  if [ -z "$changes" ]
+  then
+        echo "no changes in master branch"
+  else
       echo "there's changes in master"
       exit 1
-fi
+  fi
+}
+

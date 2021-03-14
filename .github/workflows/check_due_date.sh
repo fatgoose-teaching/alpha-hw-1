@@ -1,10 +1,19 @@
 #!/bin/bash
 
-git branch
+cfg="src/backref.cfg" 
 
-git remote -v
+while IFS= read -r line
+do
+  if [[ "$line" == *"assignment: "* ]]; then
+    url=`echo $line | sed 's/assignment: \(.*\)/\1/'`
+    echo $duedate
+  fi
+done < "$cfg"
 
-input="readme.md"
+filename=$(basename -- "$url")
+
+wget $url 
+
 
 while IFS= read -r line
 do
@@ -12,7 +21,7 @@ do
     duedate=`echo $line | sed 's/due date: \(.*\)/\1/'`
     echo $duedate
   fi
-done < "$input"
+done < "$filename"
 
 todate=`TZ=PST8PDT date`
 
