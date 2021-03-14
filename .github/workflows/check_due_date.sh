@@ -5,7 +5,7 @@ cfg="src/backref.cfg"
 while IFS= read -r line
 do
   if [[ "$line" == *"assignment: "* ]]; then
-    url=`echo $line | sed 's/assignment: \(.*\) /\1/'`
+    url=`echo $line | sed 's/assignment: \(.*\)/\1/'`
     echo $duedate
   fi
 done < "$cfg"
@@ -16,8 +16,8 @@ wget $url
 
 while IFS= read -r line
 do
-  if [[ "$line" == *"due date"* ]]; then
-    duedate=`echo $line | sed 's/due date: \(.*\)/\1/'`
+  if [[ "$line" == *"- Due: "* ]]; then
+    duedate=`echo $line | sed 's/- Due: \(.*\)/\1/'`
     echo $duedate
   fi
 done < "$filename"
