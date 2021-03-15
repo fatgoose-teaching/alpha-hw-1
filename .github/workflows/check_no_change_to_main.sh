@@ -13,9 +13,9 @@ done < "$cfg"
 echo "upstream is $upstream"
 
 git remote add upstream $upstream 
-git fetch upstream main:upstream-main
+git fetch upstream main:goose
 
-changes=`git diff upstream-main main`
+changes=`git diff goose main`
 
 if [ -z "$changes" ]
 then
