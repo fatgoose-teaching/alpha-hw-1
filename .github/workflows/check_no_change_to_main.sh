@@ -21,8 +21,5 @@ then
       echo "no changes in main branch"
 else
     echo "there's changes in main"
-    echo -----------------------------
-    echo $changes
-    echo -----------------------------
     exit 1
 fi
