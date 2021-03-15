@@ -10,14 +10,11 @@ do
   fi
 done < "$cfg"
 
-echo "upstream is $upstream"
+git remote add upstream $upstream
+git fetch upstream main:upstream-main
+git fetch origin main:downstream-main
 
-git remote add upstream $upstream 
-git fetch upstream main:goose
-
-git branch
-
-changes=`git diff goose origin/main`
+changes=`git diff downstream-main upstream-main`
 
 if [ -z "$changes" ]
 then
