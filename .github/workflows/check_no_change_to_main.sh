@@ -18,8 +18,8 @@ changes=`git diff downstream-main upstream-main`
 
 if [ -z "$changes" ]
 then
-      echo "no changes in main branch"
+      echo "Great job! No changes in main branch. Clean as a whistle!"
 else
-    echo "there's changes in main"
+    echo "There's changes in your main branch. Not permitted."
     exit 1
 fi
