@@ -20,6 +20,6 @@ if [ -z "$changes" ]
 then
       echo "Awesome Sauce! No change in the main branch. Clean as a whistle!"
 else
-    echo "There's changes in your main branch. Not permitted."
+    echo "There are changes in your main branch since it was forked from the instructor's repo. Not permitted."
     exit 1
 fi
