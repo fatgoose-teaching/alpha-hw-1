@@ -33,13 +33,12 @@ jobs:
           path: ~/.m2
           key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
           restore-keys: ${{ runner.os }}-m2
+      - name: Check no change to main branch 
+        run: bash .github/workflows/check_no_change_to_main.sh
       - name: Build with Maven
         run: mvn -B verify --file pom.xml
       - name: Check due date 
         run: bash .github/workflows/check_due_date.sh
-      - name: Check no change to main branch 
-        run: bash .github/workflows/check_no_change_to_main.sh
-
 
   checkstyle:
     name: runner / checkstyle
