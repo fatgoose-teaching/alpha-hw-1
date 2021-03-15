@@ -10,22 +10,17 @@ do
   fi
 done < "$cfg"
 
-check_upstream
+echo "upstream is $upstream"
 
-check_upstream() {
-  echo "upstream is $upstream"
+git remote add upstream $upstream 
+git fetch upstream main:upstream-main
 
-  git remote add upstream $upstream 
-  git fetch upstream main:upstream-main
+changes=`git diff upstream-main main`
 
-  changes=`git diff upstream-main main`
-
-  if [ -z "$changes" ]
-  then
-        echo "no changes in main branch"
-  else
-      echo "there's changes in main"
-      exit 1
-  fi
-}
-
+if [ -z "$changes" ]
+then
+      echo "no changes in main branch"
+else
+    echo "there's changes in main"
+    exit 1
+fi
