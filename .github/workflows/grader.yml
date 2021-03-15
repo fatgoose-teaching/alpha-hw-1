@@ -10,8 +10,8 @@ name: css 143 grader
 
 on:
   # Uncomment the following two line to run test when you push to main in your own branch
-  push:
-    branches: [ main ]
+  #push:
+  #  branches: [ main ]
   pull_request:
     branches: [ main ]
     types: [opened, reopened, synchronize]
