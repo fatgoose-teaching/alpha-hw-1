@@ -9,7 +9,7 @@
 name: css 143 grader
 
 on:
-  # Uncomment the following two line to run test when you push to master in your own branch
+  # Uncomment the following two line to run test when you push to main in your own branch
   push:
     branches: [ main ]
   pull_request:
@@ -38,7 +38,7 @@ jobs:
       - name: Check due date 
         run: bash .github/workflows/check_due_date.sh
       - name: Check no change to main branch 
-        run: bash .github/workflows/check_no_change_to_master.sh
+        run: bash .github/workflows/check_no_change_to_main.sh
 
 
   checkstyle:
