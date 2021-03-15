@@ -30,8 +30,8 @@ todateepoch=$(date -d "$todate" +%s)
 duedateepoch=$(date -d "$duedate" +%s)
 if [ "$todateepoch" -gt "$duedateepoch" ] ;
 then
-    echo "past due!"
+    echo "Submission past due!"
     exit 1
 else
-    echo "all good"
+    echo "Deadline checked out."
 fi
