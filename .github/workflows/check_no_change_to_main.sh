@@ -14,9 +14,10 @@ echo "upstream is $upstream"
 
 git remote add upstream $upstream 
 git fetch upstream main:goose
-git checkout main
 
-changes=`git diff goose...`
+git branch
+
+changes=`git diff goose origin/main`
 
 if [ -z "$changes" ]
 then
